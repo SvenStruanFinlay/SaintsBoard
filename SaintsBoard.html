@@ -8,25 +8,45 @@
     <script src="SaintBoard.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.0/moment.min.js"></script>
   </head>
-    <body>
+    <body data-ng-app="board" data-ng-controller="SaintBoardCtrl">
     <section id="inputSection">
       <div id="inputBox">
         <form id="postForm">
           <label for="postInput"> Post to SaintsBoard</label>
           <input type="text" id="postInput" data-ng-model="PostInput"/>
+          <button id="sendPost" type="submit" data-ng-click="submitPost())">Submit post</button>
         </form>
 
     </div>
     </section>
     <section id="postSection">
-      <ul id="posts" data-ng-repeat="x in posts">
-        <li id="{{x}}">
+      <ul id="posts">
+        <li  data-ng-repeat="x in posts">
+          <div id="{{x.id}}">
           <p id=date>
             Posted on: {{$scope.formatDate(x.date)}}
           </p>
           <p id="post">
             {{x.post}}
           </p>
+          <button id="commentHideShow" data-ng-click="toggleComment(x.id)">Toggle comments</button>
+          <div class="comments">
+              <ul>
+                <li data-ng-repeat="y in x.comments">
+                  <p>
+                    Posted on: {{$scope.formatDate(y.date)}}
+                  </p>
+                  <p class="comment">
+                    {{y.commentText}}
+                  </p>
+                  <form id="commentSubmission">
+                    <label for="commentTextBox">Post a Comment:</label>
+                    <input id="commentTextBox" type="text" name="name">
+                  </form>
+                </li>
+              </ul>
+          </div>
+        </div>
         </li>
       </ul>
     </section>
