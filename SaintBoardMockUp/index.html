@@ -1,0 +1,83 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>SaintsBoardDemo</title>
+    <link rel="stylesheet" type text/css href="SaintBoard.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script src="DemoSaintBoard.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.0/moment.min.js"></script>
+  </head>
+    <body data-ng-app="board" data-ng-controller="SaintBoardCtrl">
+    <section id="inputSection">
+      <div id="inputBox">
+        <div id=Title>
+          <div id= "topBlock">
+            <h1 for="postInput"> SaintsBoard</h1>
+          </div>
+        </div>
+        <form id="postForm">
+          Submit a Post: <input type="text" data-ng-model="post" />
+          <button data-ng-click="submitPost(post)">Submit</button>
+        </form>
+    </div>
+    </section>
+    <section id="postSection">
+      <h3>Posts</h3>
+      <ul id="posts">
+        <li  id="postList" data-ng-repeat="x in demoServerPosts">
+          <div id={{x.id}}>
+          <p id=date>
+            Posted on: {{formatDate(x.date)}}
+          </p>
+          <p id="post">
+            {{x.post}}
+          </p>
+          <button id="commentHideShow" data-ng-click="toggleComment(x.id)">Toggle comments</button>
+          <div class="comments">
+              <ul>
+                <li data-ng-repeat="y in x.comments">
+                  <p>
+                    Posted on: {{formatDate(y.date)}}
+                  </p>
+                  <p class="comment">
+                    {{y.commentText}}
+                  </p>
+                </li>
+              </ul>
+              <form>
+                Submit a Comment: <input type="text" data-ng-model="commentSubmitText" />
+                <button type="submit" value="Submit comment" data-ng-click="submitComment(x.id,commentSubmitText)">Submit comment</button>
+              </form>
+          </div>
+        </div>
+        </li>
+      </ul>
+  <!--    <script type="text/JavaScript">
+        console.log('begin');
+        var http = new XMLHttpRequest();
+        var params = "text=stuff";
+        http.open("POST", "http://localhost:8081", true);
+
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        //http.setRequestHeader("Content-length", params.length);
+        //http.setRequestHeader("Connection", "close");
+
+        http.onreadystatechange = function() {
+          console.log('onreadystatechange');
+          if (http.readyState == 4 && http.status == 200) {
+            alert(http.responseText);
+          }
+          else {
+            console.log('readyState=' + http.readyState + ', status: ' + http.status);
+          }
+        }
+
+        console.log('sending...')
+        http.send(params);
+        console.log('end');
+
+      </script>-->
+    </section>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  background-image: url("http://www.kinburnguesthouse.co.uk/wp-content/uploads/2015/09/71.jpg") ;
+  background-size: 100% 100%;
+  overflow-y: scroll;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color:white;
+}
+
+div#topBlock{
+
+  : 100%;
+  height: 10%;
+  font-size: 30;
+  text-align: center;
+  display: inline-block;
+}
+h3{
+  Color: pink;
+  text-decoration: underline;
+}
+h1{
+  color: Grey;
+  text-decoration: underline;
+}
+ul#posts{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: transparent;
+
+}
+ul#posts li{
+  border: 5px solid lightblue;
+
+}
+ul#postList li {
+  border: 2px solid lightblue;
+
+ display: inline;
+    width: 100%;
+  float : left;
+}
+ul#comments li a {
+  display: inline;
+  color: white;
+  text-align: center;
+  padding: 30;
+  text-decoration: none;
+  list-style-type: none;
+
+}
+
+section#postSection{
+  height: 100%;
+}
+
+form#postForm{
+  color: yellow;
+  text-align: center;
+}
+
+ul#posts{
+  text-align: center;
+  border: 5px solid lightblue;
+  width: 100%;
+}
+.comments{
+  display: none;
+}
