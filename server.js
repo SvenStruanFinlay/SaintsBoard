@@ -18,7 +18,7 @@ app.post('/', function(req, res){
   console.log('POST /');
   console.dir(req.body);
   res.writeHead(200, {'Content-Type': 'text/html'});
-  res.end('thanks');
+  //res.end('thanks');
 });
 
 port = 8081;
