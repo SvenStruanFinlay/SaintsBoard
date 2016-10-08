@@ -20,9 +20,9 @@ app.controller('SaintBoardCtrl',function($scope,$http){
   }
   getData=function(requestsite){
 
-    $http.get("linkToSite?rating").then(
+    $http.get("localhost:8081").then(
       function success(response){
-        $scope.posts=[];
+        $scope.posts=response.data.posts;
       }
       function error(response){
         alerts.alert("alerts","error getting the posts, server returned: " +response.status);
