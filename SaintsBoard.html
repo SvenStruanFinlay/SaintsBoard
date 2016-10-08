@@ -11,15 +11,21 @@
     <body data-ng-app="board" data-ng-controller="SaintBoardCtrl">
     <section id="inputSection">
       <div id="inputBox">
-        <form method="post" action="http://localhost:8081">
+        <div id=Title>
+          <div id= "topBlock">
+            <h1 for="postInput"> SaintsBoard</h1>
+          </div>
+        </div>
+        <form id="postForm" method="post" action="http://localhost:8081">
           Submit a Post: <input type="text" name="post" />
           <input type="submit" value="Submit" />
         </form>
     </div>
     </section>
     <section id="postSection">
+      <h3>Posts</h3>
       <ul id="posts">
-        <li  data-ng-repeat="x in posts">
+        <li  id="postList" data-ng-repeat="x in posts">
           <div id={{x.id}}>
           <p id=date>
             Posted on: {{$scope.formatDate(x.date)}}
